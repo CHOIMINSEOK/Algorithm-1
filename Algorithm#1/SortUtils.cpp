@@ -7,7 +7,29 @@
 //
 
 #include "SortUtils.hpp"
-//http://www.cplusplus.com/doc/tutorial/files/ 참고함
+int* SortUtils::char2int(char* charArr){
+    char* tok = " ";
+    int intArraySize = CountChar(charArr, tok[0]) + 1;
+    int* intArr = new int[intArraySize];
+    char* charNums = strtok(charArr, tok);
+    
+    for(int i=0; charNums != NULL && i<intArraySize; i++){
+        intArr[i] = atoi(charNums);
+        charNums = strtok(NULL, tok);
+    }
+    
+    return intArr;
+}
+
+int SortUtils::CountChar(char* src, char tok){
+    int totalSize = strlen(src), findCount = 0;
+    cout << "totalSize = " << totalSize << endl;
+    for(int i = 0; i < totalSize; i++){
+        if(src[i] == tok) findCount++;
+    }
+    return findCount;
+}
+
 int SortUtils::openInputStream(string fileName){
     fileInputStream.open(fileName, ios::in|ios::ate);
     streampos size;
@@ -20,7 +42,8 @@ int SortUtils::openInputStream(string fileName){
         fileInputStream.read(s, size);
         s[size] = 0;
         
-        cout << fileName + " 내용 : " + s << endl;
+        cout << "파일이름 : " + fileName << endl;
+        cout << "char array : " << s << endl;
         
         delete[] s;
     } else {

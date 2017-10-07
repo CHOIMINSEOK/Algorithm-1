@@ -13,6 +13,7 @@
 #include <string>
 #include <cstring>
 #include <fstream>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -24,6 +25,10 @@ private:
 public:
     int openInputStream(string fileName);
     int closeInputStream();
+    
+    int* char2int(char* oriArr);
+    int CountChar(char* src, char tok);
+    
     
 };
 
