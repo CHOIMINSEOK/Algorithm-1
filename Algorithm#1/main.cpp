@@ -9,13 +9,27 @@
 #include <iostream>
 #include "SortUtils.hpp"
 
+static SortUtils sortUtils;
+void insertSort();
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     cout << "Hello, World!\n";
     
-    SortUtils sortUtils;
-    sortUtils.openInputStream("/Users/lf_wannabe/Algorithm/Algorithm#1/Algorithm#1/input.txt");
+    
+    if(sortUtils.openInputStream("input.txt") == -1){
+        cout << "파일을 여는데 실패하였습니다. " << endl;
+        return 0;
+    }
+    
+    insertSort();
     sortUtils.closeInputStream();
 
     return 0;
 }
+
+void insertSort(){
+    cout << "array : " + sortUtils.int2char(sortUtils.insertionSort()) << endl;
+    cout << "걸린 시간 : " << sortUtils.getProcessTime() << endl;
+}
+

@@ -14,22 +14,31 @@
 #include <cstring>
 #include <fstream>
 #include <stdlib.h>
+#include <time.h>
 
 using namespace std;
+#define SIZE 0 // index of array size
 
 class SortUtils {
 private:
     ifstream fileInputStream;
-    double processTime;
+    char* oriFileArr;
+    float processTime;
 
 public:
     int openInputStream(string fileName);
     int closeInputStream();
     
+    double getProcessTime();
+    
+    /* Common utils */
     int* char2int(char* oriArr);
+    string int2char(int* oriArr);
     int CountChar(char* src, char tok);
+    int saveSortedArr(string oriArr);
     
-    
+    /* Sorting function */
+    int* insertionSort();
 };
 
 #endif /* SortUtils_hpp */

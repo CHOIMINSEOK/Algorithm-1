@@ -7,13 +7,38 @@
 //
 
 #include "SortUtils.hpp"
+
+int* SortUtils::insertionSort(){
+    int* arr = char2int(oriFileArr);
+    int totalSize = arr[SIZE];
+    int tmp;
+    clock_t begin, end;
+    
+    begin = clock();
+    for (int i=2; i<totalSize; i++) {
+        tmp = arr[i];
+        int j;
+        for (j=i-1; j>0 && arr[j]>tmp; j--) {
+            arr[j+1] = arr[j];
+        }
+        
+        arr[j+1] = tmp;
+    }
+    end = clock();
+    processTime = (float)(end-begin)/CLOCKS_PER_SEC;
+    
+    saveSortedArr(int2char(arr));
+    return arr;
+}
+
 int* SortUtils::char2int(char* charArr){
     char* tok = " ";
-    int intArraySize = CountChar(charArr, tok[0]) + 1;
+    int intArraySize = CountChar(charArr, tok[0]) + 2;
     int* intArr = new int[intArraySize];
     char* charNums = strtok(charArr, tok);
+    intArr[SIZE] = intArraySize;
     
-    for(int i=0; charNums != NULL && i<intArraySize; i++){
+    for(int i=1; charNums != NULL && i<intArraySize; i++){
         intArr[i] = atoi(charNums);
         charNums = strtok(NULL, tok);
     }
@@ -21,33 +46,48 @@ int* SortUtils::char2int(char* charArr){
     return intArr;
 }
 
+string SortUtils::int2char(int *oriArr){
+    string sortedArr = "";
+    for (int i=1; i<oriArr[SIZE]; i++) {
+        sortedArr += to_string(oriArr[i]) + " ";
+    }
+    
+    return sortedArr;
+}
+
 int SortUtils::CountChar(char* src, char tok){
     int totalSize = strlen(src), findCount = 0;
-    cout << "totalSize = " << totalSize << endl;
     for(int i = 0; i < totalSize; i++){
         if(src[i] == tok) findCount++;
     }
     return findCount;
 }
 
+int SortUtils::saveSortedArr(string oriArr){
+    ofstream outputFile("output.txt");
+    outputFile << oriArr << endl;
+    outputFile.close();
+    
+    return 0;
+}
+
+double SortUtils::getProcessTime(){
+    return processTime;
+}
+
 int SortUtils::openInputStream(string fileName){
     fileInputStream.open(fileName, ios::in|ios::ate);
     streampos size;
-    char * s;
     
     if(fileInputStream.is_open()){
         size = fileInputStream.tellg();
-        s = new char[size + (streampos)1];
+        oriFileArr = new char[size + (streampos)1];
         fileInputStream.seekg(0, ios::beg);
-        fileInputStream.read(s, size);
-        s[size] = 0;
+        fileInputStream.read(oriFileArr, size);
+        oriFileArr[size] = 0;
         
-        cout << "파일이름 : " + fileName << endl;
-        cout << "char array : " << s << endl;
-        
-        delete[] s;
     } else {
-        cout << fileName + "이 존재하지 않습니다. " << endl;
+        return -1;
     }
     
     return 0;
@@ -55,5 +95,6 @@ int SortUtils::openInputStream(string fileName){
 
 int SortUtils::closeInputStream(){
     fileInputStream.close();
+    delete[] oriFileArr;
     return 0;
 }
