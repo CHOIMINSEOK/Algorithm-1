@@ -39,6 +39,7 @@ public:
     
     /* Sorting function */
     int* insertionSort();
+    int* bubbleSort();
 };
 
 #endif /* SortUtils_hpp */

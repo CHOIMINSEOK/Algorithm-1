@@ -31,6 +31,29 @@ int* SortUtils::insertionSort(){
     return arr;
 }
 
+int* SortUtils::bubbleSort(){
+    int* arr = char2int(oriFileArr);
+    int totalSize = arr[SIZE];
+    int tmp;
+    clock_t begin, end;
+    
+    begin = clock();
+    for (int i=1; i<totalSize-1; i++) {
+        for (int j=1; j<totalSize-i; j++) {
+            if(arr[j] > arr[j+1]){
+                tmp = arr[j+1];
+                arr[j+1] = arr[j];
+                arr[j] = tmp;
+            }
+        }
+    }
+    end = clock();
+    processTime = (float)(end-begin)/CLOCKS_PER_SEC;
+    
+    saveSortedArr(int2char(arr));
+    return arr;
+}
+
 int* SortUtils::char2int(char* charArr){
     char* tok = " ";
     int intArraySize = CountChar(charArr, tok[0]) + 2;
