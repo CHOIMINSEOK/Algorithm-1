@@ -14,11 +14,16 @@ void insertSort(){
     cout << "array : " + sortUtils.int2char(sortUtils.insertionSort()) << endl;
     cout << "걸린 시간 : " << sortUtils.getProcessTime() << endl;
 }
-
 void bubbleSort(){
     cout << "array : " + sortUtils.int2char(sortUtils.bubbleSort()) << endl;
     cout << "걸린 시간 : " << sortUtils.getProcessTime() << endl;
 }
+void selectSort(){
+    cout << "array : " + sortUtils.int2char(sortUtils.selectionSort()) << endl;
+    cout << "걸린 시간 : " << sortUtils.getProcessTime() << endl;
+
+}
+
 
 int main(int argc, const char * argv[]) {
     if(sortUtils.openInputStream("input.txt") == -1){
@@ -27,7 +32,8 @@ int main(int argc, const char * argv[]) {
     }
     
 //    insertSort();
-    bubbleSort();
+//    bubbleSort();
+    selectSort();
     sortUtils.closeInputStream();
 
     return 0;

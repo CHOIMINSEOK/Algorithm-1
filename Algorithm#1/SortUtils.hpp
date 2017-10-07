@@ -40,6 +40,7 @@ public:
     /* Sorting function */
     int* insertionSort();
     int* bubbleSort();
+    int* selectionSort();
 };
 
 #endif /* SortUtils_hpp */
