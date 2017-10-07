@@ -7,9 +7,15 @@
 //
 
 #include <iostream>
+#include "SortUtils.hpp"
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << "Hello, World!\n";
+    cout << "Hello, World!\n";
+    
+    SortUtils sortUtils;
+    sortUtils.openInputStream("/Users/lf_wannabe/Algorithm/Algorithm#1/Algorithm#1/input.txt");
+    sortUtils.closeInputStream();
+
     return 0;
 }
