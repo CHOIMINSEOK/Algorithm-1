@@ -42,21 +42,51 @@ void HeapSort(){
     cout << "array : " + sortUtils.int2char(sortUtils.HeapSort()) << endl;
     cout << "걸린 시간 : " << sortUtils.getProcessTime() << endl;
 }
+void showLandingPage(){
+    system("clear");
+    cout << "#####               Algorithm Assignment #1 " << endl;
+    cout << "##########          implement and analyze each of sorting algorithms" << endl;
+    cout << "###############     by CHOIMINSEOK\n" << endl;
+    cout << " 1. Insertion Sort " << endl;
+    cout << " 2. Bubble Sort " << endl;
+    cout << " 3. Selection Sort " << endl;
+    cout << " 4. Recursive Merge Sort " << endl;
+    cout << " 5. Sequencial Merge Sort " << endl;
+    cout << " 6. Recursive Quick Sort " << endl;
+    cout << " 7. Sequencial Quick Sort " << endl;
+    cout << " 8. Heap Sort " << endl;
+    cout << " 9. quit" << endl;
+    cout << "Selection : ";
+}
+
 
 int main(int argc, const char * argv[]) {
     if(sortUtils.openInputStream("input.txt") == -1){
         cout << "파일을 여는데 실패하였습니다. " << endl;
         return 0;
     }
+    int selection;
+    bool isRun = true;
+    while(isRun){
+        showLandingPage();
+        cin >> selection;
+        system("clear");
+        
+        switch (selection) {
+            case 1: insertSort(); break;
+            case 2: bubbleSort(); break;
+            case 3: selectSort(); break;
+            case 4: reMergeSort(); break;
+            case 5: sqMergeSort(); break;
+            case 6: reQuickSort(); break;
+            case 7: sqQuickSort(); break;
+            case 8: HeapSort(); break;
+            default: isRun = false; break;
+        }
+        getchar();
+        getchar();
+    }
     
-//    insertSort();
-//    bubbleSort();
-//    selectSort();
-//    reMergeSort();
-//    sqMergeSort();
-//    reQuickSort();
-//    sqQuickSort();
-    HeapSort();
     sortUtils.closeInputStream();
 
     return 0;

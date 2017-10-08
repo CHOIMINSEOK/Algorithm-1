@@ -144,11 +144,30 @@ int* SortUtils::HeapSort(){
     return sortedArr;
 }
 
+//int* SortUtils::char2int(char* charArr){
+//    char* tmpArr;
+//    strcpy(charArr, tmpArr);
+//    char* tok = " ";
+//    int intArraySize = CountChar(charArr, tok[0]) + 2;
+//    int* intArr = new int[intArraySize];
+//    char* charNums = strtok(charArr, tok);
+//    intArr[SIZE] = intArraySize;
+//
+//    for(int i=1; charNums != NULL && i<intArraySize; i++){
+//        intArr[i] = atoi(charNums);
+//        charNums = strtok(NULL, tok);
+//    }
+//
+//    return intArr;
+//}
+
 int* SortUtils::char2int(char* charArr){
+    char* tmpArr = new char[strlen(charArr)];
+    strcpy(tmpArr, charArr);
     char* tok = " ";
-    int intArraySize = CountChar(charArr, tok[0]) + 2;
+    int intArraySize = CountChar(tmpArr, tok[0]) + 2;
     int* intArr = new int[intArraySize];
-    char* charNums = strtok(charArr, tok);
+    char* charNums = strtok(tmpArr, tok);
     intArr[SIZE] = intArraySize;
     
     for(int i=1; charNums != NULL && i<intArraySize; i++){
