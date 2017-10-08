@@ -10,5 +10,14 @@
 #define HeapSort_hpp
 
 #include <stdio.h>
+#include "Commons.h"
+
+class HeapSort{
+public:
+    static int* sort(int* arr);
+    static void maxHeapify(int* arr, int rootIdx);
+    static void buildMaxHeap(int* arr);
+    
+};
 
 #endif /* HeapSort_hpp */

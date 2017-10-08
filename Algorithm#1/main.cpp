@@ -22,14 +22,14 @@ void selectSort(){
     cout << "array : " + sortUtils.int2char(sortUtils.selectionSort()) << endl;
     cout << "걸린 시간 : " << sortUtils.getProcessTime() << endl;
 }
-//void sqMergeSort(){
-//    cout << "array : " + sortUtils.int2char(sortUtils.sqMergeSort()) << endl;
-//    cout << "걸린 시간 : " << sortUtils.getProcessTime() << endl;
-//}
-//void reMergeSort(){
-//    cout << "array : " + sortUtils.int2char(sortUtils.reMergeSort()) << endl;
-//    cout << "걸린 시간 : " << sortUtils.getProcessTime() << endl;
-//}
+void sqMergeSort(){
+    cout << "array : " + sortUtils.int2char(sortUtils.sqMergeSort()) << endl;
+    cout << "걸린 시간 : " << sortUtils.getProcessTime() << endl;
+}
+void reMergeSort(){
+    cout << "array : " + sortUtils.int2char(sortUtils.reMergeSort()) << endl;
+    cout << "걸린 시간 : " << sortUtils.getProcessTime() << endl;
+}
 void sqQuickSort(){
     cout << "array : " + sortUtils.int2char(sortUtils.sqQuickSort()) << endl;
     cout << "걸린 시간 : " << sortUtils.getProcessTime() << endl;
@@ -38,10 +38,10 @@ void reQuickSort(){
     cout << "array : " + sortUtils.int2char(sortUtils.reQuickSort()) << endl;
     cout << "걸린 시간 : " << sortUtils.getProcessTime() << endl;
 }
-//void HeapSort(){
-//    cout << "array : " + sortUtils.int2char(sortUtils.HeapSort()) << endl;
-//    cout << "걸린 시간 : " << sortUtils.getProcessTime() << endl;
-//}
+void HeapSort(){
+    cout << "array : " + sortUtils.int2char(sortUtils.HeapSort()) << endl;
+    cout << "걸린 시간 : " << sortUtils.getProcessTime() << endl;
+}
 
 int main(int argc, const char * argv[]) {
     if(sortUtils.openInputStream("input.txt") == -1){
@@ -55,8 +55,8 @@ int main(int argc, const char * argv[]) {
 //    reMergeSort();
 //    sqMergeSort();
 //    reQuickSort();
-    sqQuickSort();
-//    HeapSort();
+//    sqQuickSort();
+    HeapSort();
     sortUtils.closeInputStream();
 
     return 0;

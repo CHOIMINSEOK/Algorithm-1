@@ -11,6 +11,8 @@
 		041F974F1F88A24F00B9BA77 /* SortUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041F974D1F88A24F00B9BA77 /* SortUtils.cpp */; };
 		04A065CB1F89240900B2805A /* QuickSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A065C91F89240900B2805A /* QuickSort.cpp */; };
 		04A065CE1F89B88D00B2805A /* Commons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A065CD1F89B88D00B2805A /* Commons.cpp */; };
+		04A065D11F89F99600B2805A /* MergeSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A065CF1F89F99600B2805A /* MergeSort.cpp */; };
+		04A065D41F8A1F4800B2805A /* HeapSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A065D21F8A1F4800B2805A /* HeapSort.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +36,10 @@
 		04A065CA1F89240900B2805A /* QuickSort.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = QuickSort.hpp; sourceTree = "<group>"; };
 		04A065CC1F89253C00B2805A /* Commons.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Commons.h; sourceTree = "<group>"; };
 		04A065CD1F89B88D00B2805A /* Commons.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Commons.cpp; sourceTree = "<group>"; };
+		04A065CF1F89F99600B2805A /* MergeSort.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MergeSort.cpp; sourceTree = "<group>"; };
+		04A065D01F89F99600B2805A /* MergeSort.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MergeSort.hpp; sourceTree = "<group>"; };
+		04A065D21F8A1F4800B2805A /* HeapSort.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HeapSort.cpp; sourceTree = "<group>"; };
+		04A065D31F8A1F4800B2805A /* HeapSort.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HeapSort.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,12 +73,16 @@
 			isa = PBXGroup;
 			children = (
 				041F97461F88917C00B9BA77 /* main.cpp */,
+				04A065D21F8A1F4800B2805A /* HeapSort.cpp */,
+				04A065D31F8A1F4800B2805A /* HeapSort.hpp */,
 				04A065CC1F89253C00B2805A /* Commons.h */,
 				04A065CD1F89B88D00B2805A /* Commons.cpp */,
 				041F974D1F88A24F00B9BA77 /* SortUtils.cpp */,
 				04A065C91F89240900B2805A /* QuickSort.cpp */,
 				04A065CA1F89240900B2805A /* QuickSort.hpp */,
 				041F974E1F88A24F00B9BA77 /* SortUtils.hpp */,
+				04A065CF1F89F99600B2805A /* MergeSort.cpp */,
+				04A065D01F89F99600B2805A /* MergeSort.hpp */,
 			);
 			path = "Algorithm#1";
 			sourceTree = "<group>";
@@ -135,8 +145,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				04A065CE1F89B88D00B2805A /* Commons.cpp in Sources */,
+				04A065D41F8A1F4800B2805A /* HeapSort.cpp in Sources */,
 				041F97471F88917C00B9BA77 /* main.cpp in Sources */,
 				04A065CB1F89240900B2805A /* QuickSort.cpp in Sources */,
+				04A065D11F89F99600B2805A /* MergeSort.cpp in Sources */,
 				041F974F1F88A24F00B9BA77 /* SortUtils.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

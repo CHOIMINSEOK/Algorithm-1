@@ -17,6 +17,8 @@
 #include <time.h>
 #include "Commons.h"
 #include "QuickSort.hpp"
+#include "MergeSort.hpp"
+#include "HeapSort.hpp"
 
 class SortUtils {
 private:

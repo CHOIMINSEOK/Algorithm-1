@@ -10,5 +10,16 @@
 #define MergeSort_hpp
 
 #include <stdio.h>
+#include <queue>
+#include "Commons.h"
+
+class MergeSort{
+private:
+    static int* merge(int* arr1, int* arr2);
+    
+public:
+    static int* recurSort(int* arr, int startIdx, int  endIdx);
+    static int* seqSort(int* arr);
+};
 
 #endif /* MergeSort_hpp */
