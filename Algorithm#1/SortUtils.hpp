@@ -15,9 +15,8 @@
 #include <fstream>
 #include <stdlib.h>
 #include <time.h>
-
-using namespace std;
-#define SIZE 0 // index of array size
+#include "Commons.h"
+#include "QuickSort.hpp"
 
 class SortUtils {
 private:
@@ -31,7 +30,7 @@ public:
     
     double getProcessTime();
     
-    /* Common utils */
+    /* utils */
     int* char2int(char* oriArr);
     string int2char(int* oriArr);
     int CountChar(char* src, char tok);
@@ -41,6 +40,11 @@ public:
     int* insertionSort();
     int* bubbleSort();
     int* selectionSort();
+    int* sqQuickSort(); // sequence ver. of Quick sort
+    int* reQuickSort(); // recursive ver. of Quick sort
+    int* sqMergeSort(); // sequence ver. of Merge sort
+    int* reMergeSort(); // recursive ver. of Merge sort
+    int* HeapSort();
 };
 
 #endif /* SortUtils_hpp */

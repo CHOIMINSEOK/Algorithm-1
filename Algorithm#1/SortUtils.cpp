@@ -34,17 +34,12 @@ int* SortUtils::insertionSort(){
 int* SortUtils::bubbleSort(){
     int* arr = char2int(oriFileArr);
     int totalSize = arr[SIZE];
-    int tmp;
     clock_t begin, end;
     
     begin = clock();
     for (int i=1; i<totalSize-1; i++) {
         for (int j=1; j<totalSize-i; j++) {
-            if(arr[j] > arr[j+1]){
-                tmp = arr[j+1];
-                arr[j+1] = arr[j];
-                arr[j] = tmp;
-            }
+            if(arr[j] > arr[j+1]) Commons::swap(&arr[j], &arr[j+1]);
         }
     }
     end = clock();
@@ -57,7 +52,7 @@ int* SortUtils::bubbleSort(){
 int* SortUtils::selectionSort(){
     int* arr = char2int(oriFileArr);
     int totalSize = arr[SIZE];
-    int tmp, minIdx;
+    int minIdx;
     clock_t begin, end;
     
     begin = clock();
@@ -66,12 +61,7 @@ int* SortUtils::selectionSort(){
         for (int j=i+1; j<totalSize; j++) {
             if(arr[minIdx] > arr[j]) minIdx = j;
         }
-        
-        if(minIdx != i){
-            tmp = arr[minIdx];
-            arr[minIdx] = arr[i];
-            arr[i] = tmp;
-        }
+        if(minIdx != i) Commons::swap(&arr[minIdx], &arr[i]);
     }
     
     end = clock();
@@ -80,6 +70,84 @@ int* SortUtils::selectionSort(){
     saveSortedArr(int2char(arr));
     return arr;
 }
+
+int* SortUtils::sqQuickSort(){
+    int* arr = char2int(oriFileArr);
+    int totalSize = arr[SIZE];
+    int tmp;
+    clock_t begin, end;
+    begin = clock();
+
+    QuickSort::seqSort(arr);
+
+    end = clock();
+    processTime = (float)(end-begin)/CLOCKS_PER_SEC;
+
+    saveSortedArr(int2char(arr));
+    return arr;
+}
+
+int* SortUtils::reQuickSort(){
+    int* arr = char2int(oriFileArr);
+    int totalSize = arr[SIZE];
+    int tmp;
+    clock_t begin, end;
+    begin = clock();
+    
+    QuickSort::recurSort(arr, 1, totalSize-1);
+
+    end = clock();
+    processTime = (float)(end-begin)/CLOCKS_PER_SEC;
+
+    saveSortedArr(int2char(arr));
+    return arr;
+}
+
+//int* SortUtils::sqMergeSort(){
+//    int* arr = char2int(oriFileArr);
+//    int totalSize = arr[SIZE];
+//    int tmp;
+//    clock_t begin, end;
+//    begin = clock();
+//
+//    
+//
+//    end = clock();
+//    processTime = (float)(end-begin)/CLOCKS_PER_SEC;
+//
+//    saveSortedArr(int2char(arr));
+//    return arr;
+//}
+//int* SortUtils::reMergeSort(){
+//    int* arr = char2int(oriFileArr);
+//    int totalSize = arr[SIZE];
+//    int tmp;
+//    clock_t begin, end;
+//    begin = clock();
+//
+//
+//
+//    end = clock();
+//    processTime = (float)(end-begin)/CLOCKS_PER_SEC;
+//
+//    saveSortedArr(int2char(arr));
+//    return arr;
+//}
+//int* SortUtils::HeapSort(){
+//    int* arr = char2int(oriFileArr);
+//    int totalSize = arr[SIZE];
+//    int tmp;
+//    clock_t begin, end;
+//    begin = clock();
+//
+//
+//
+//    end = clock();
+//    processTime = (float)(end-begin)/CLOCKS_PER_SEC;
+//
+//    saveSortedArr(int2char(arr));
+//    return arr;
+//}
 
 int* SortUtils::char2int(char* charArr){
     char* tok = " ";
