@@ -15,7 +15,9 @@
 
 class QuickSort{
 public:
+    // recursive Quick Sort
     static void recurSort(int* arr, int start, int end);
+    // sequential Quick Sort
     static void seqSort(int* arr);
     
 };

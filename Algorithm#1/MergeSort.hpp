@@ -18,7 +18,9 @@ private:
     static int* merge(int* arr1, int* arr2);
     
 public:
+    // recursive Merge Sort
     static int* recurSort(int* arr, int startIdx, int  endIdx);
+    // sequential Merge Sort
     static int* seqSort(int* arr);
 };
 

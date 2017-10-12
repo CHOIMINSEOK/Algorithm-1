@@ -8,6 +8,9 @@
 
 #include "HeapSort.hpp"
 
+/* Heap Sort
+ *  - ppt pseudo code를 참조하였습니다.
+ */
 int* HeapSort::sort(int *arr){
     int arrSize = arr[SIZE];
     int* newArr = new int[arrSize];

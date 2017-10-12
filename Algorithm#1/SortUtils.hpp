@@ -42,10 +42,10 @@ public:
     int* insertionSort();
     int* bubbleSort();
     int* selectionSort();
-    int* sqQuickSort(); // sequence ver. of Quick sort
-    int* reQuickSort(); // recursive ver. of Quick sort
-    int* sqMergeSort(); // sequence ver. of Merge sort
-    int* reMergeSort(); // recursive ver. of Merge sort
+    int* sqQuickSort(); // sequential Quick sort
+    int* reQuickSort(); // recursive version of Quick sort
+    int* sqMergeSort(); // sequential Merge sort
+    int* reMergeSort(); // recursive version of Merge sort
     int* HeapSort();
 };
 

@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include <vector>
 #include "SortUtils.hpp"
 
 static SortUtils sortUtils;
@@ -42,6 +43,45 @@ void HeapSort(){
     cout << "array : " + sortUtils.int2char(sortUtils.HeapSort()) << endl;
     cout << "걸린 시간 : " << sortUtils.getProcessTime() << endl;
 }
+class SortResult {
+public:
+    float time;
+    string content;
+    SortResult(float t, string c);
+};
+SortResult::SortResult(float t, string c){
+    time = t;
+    content = c;
+}
+
+bool operator <(const SortResult &a, const SortResult &b){
+    return a.time < b.time;
+}
+
+void sortUsingAll(){
+    vector<SortResult> rank;
+//    sortUtils.insertionSort();
+//    rank.push_back(SortResult(sortUtils.getProcessTime(), "insertionSort 걸린시간         : " + to_string(sortUtils.getProcessTime())));
+//    sortUtils.bubbleSort();
+//    rank.push_back(SortResult(sortUtils.getProcessTime(), "bubbleSort 걸린시간            : " + to_string(sortUtils.getProcessTime())));
+//    sortUtils.selectionSort();
+//    rank.push_back(SortResult(sortUtils.getProcessTime(), "selectionSort 걸린시간         : " + to_string(sortUtils.getProcessTime())));
+    sortUtils.sqMergeSort();
+    rank.push_back(SortResult(sortUtils.getProcessTime(), "sequential Merge Sort 걸린시간 : " + to_string(sortUtils.getProcessTime())));
+    sortUtils.reMergeSort();
+    rank.push_back(SortResult(sortUtils.getProcessTime(), "recursive Merge Sort 걸린시간  : " + to_string(sortUtils.getProcessTime())));
+//    sortUtils.sqQuickSort();
+//    rank.push_back(SortResult(sortUtils.getProcessTime(), "sequential Quick Sort 걸린시간 : " + to_string(sortUtils.getProcessTime())));
+//    sortUtils.reQuickSort();
+//    rank.push_back(SortResult(sortUtils.getProcessTime(), "recursive Quick Sort 걸린시간  : " + to_string(sortUtils.getProcessTime())));
+    sortUtils.HeapSort();
+    rank.push_back(SortResult(sortUtils.getProcessTime(), "HeapSort 걸린시간              : " + to_string(sortUtils.getProcessTime())));
+    
+    sort(rank.begin(), rank.end());
+    for (int i = 0; i < rank.size(); i++)
+        cout << rank[i].content << endl;
+}
+
 void showLandingPage(){
     system("clear");
     cout << "#####               Algorithm Assignment #1 " << endl;
@@ -55,7 +95,8 @@ void showLandingPage(){
     cout << " 6. Recursive Quick Sort " << endl;
     cout << " 7. Sequencial Quick Sort " << endl;
     cout << " 8. Heap Sort " << endl;
-    cout << " 9. quit" << endl;
+    cout << " 9. run all" << endl;
+    cout << " 10. quit" << endl;
     cout << "Selection : ";
 }
 
@@ -81,6 +122,7 @@ int main(int argc, const char * argv[]) {
             case 6: reQuickSort(); break;
             case 7: sqQuickSort(); break;
             case 8: HeapSort(); break;
+            case 9: sortUsingAll(); break;
             default: isRun = false; break;
         }
         getchar();

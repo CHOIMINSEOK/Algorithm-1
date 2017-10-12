@@ -8,6 +8,7 @@
 
 #include "SortUtils.hpp"
 
+// insertion Sort
 int* SortUtils::insertionSort(){
     int* arr = char2int(oriFileArr);
     int totalSize = arr[SIZE];
@@ -15,6 +16,7 @@ int* SortUtils::insertionSort(){
     clock_t begin, end;
     
     begin = clock();
+    // 실제 알고리즘 부분 ///////////////////////
     for (int i=2; i<totalSize; i++) {
         tmp = arr[i];
         int j;
@@ -24,6 +26,7 @@ int* SortUtils::insertionSort(){
         
         arr[j+1] = tmp;
     }
+    /////////////////////////////////////////
     end = clock();
     processTime = (float)(end-begin)/CLOCKS_PER_SEC;
     
@@ -31,17 +34,20 @@ int* SortUtils::insertionSort(){
     return arr;
 }
 
+// bubble Sort
 int* SortUtils::bubbleSort(){
     int* arr = char2int(oriFileArr);
     int totalSize = arr[SIZE];
     clock_t begin, end;
     
     begin = clock();
+    // 실제 알고리즘 부분 ///////////////////////
     for (int i=1; i<totalSize-1; i++) {
         for (int j=1; j<totalSize-i; j++) {
             if(arr[j] > arr[j+1]) Commons::swap(&arr[j], &arr[j+1]);
         }
     }
+    /////////////////////////////////////////
     end = clock();
     processTime = (float)(end-begin)/CLOCKS_PER_SEC;
     
@@ -49,6 +55,7 @@ int* SortUtils::bubbleSort(){
     return arr;
 }
 
+// selection Sort
 int* SortUtils::selectionSort(){
     int* arr = char2int(oriFileArr);
     int totalSize = arr[SIZE];
@@ -56,6 +63,7 @@ int* SortUtils::selectionSort(){
     clock_t begin, end;
     
     begin = clock();
+    // 실제 알고리즘 부분 ///////////////////////
     for (int i=1; i<totalSize; i++) {
         minIdx = i;
         for (int j=i+1; j<totalSize; j++) {
@@ -63,7 +71,7 @@ int* SortUtils::selectionSort(){
         }
         if(minIdx != i) Commons::swap(&arr[minIdx], &arr[i]);
     }
-    
+    /////////////////////////////////////////
     end = clock();
     processTime = (float)(end-begin)/CLOCKS_PER_SEC;
     
@@ -76,7 +84,9 @@ int* SortUtils::sqQuickSort(){
     clock_t begin, end;
     
     begin = clock();
+    // 실제 알고리즘 부분 ///////////////////////
     QuickSort::seqSort(arr);
+    /////////////////////////////////////////
     end = clock();
     
     processTime = (float)(end-begin)/CLOCKS_PER_SEC;
@@ -90,7 +100,9 @@ int* SortUtils::reQuickSort(){
     clock_t begin, end;
     
     begin = clock();
+    // 실제 알고리즘 부분 ///////////////////////
     QuickSort::recurSort(arr, 1, totalSize-1);
+    /////////////////////////////////////////
     end = clock();
     
     processTime = (float)(end-begin)/CLOCKS_PER_SEC;
@@ -103,7 +115,9 @@ int* SortUtils::sqMergeSort(){
     clock_t begin, end;
     
     begin = clock();
+    // 실제 알고리즘 부분 ///////////////////////
     int* sortedArr = MergeSort::seqSort(arr);
+    /////////////////////////////////////////
     end = clock();
     
     processTime = (float)(end-begin)/CLOCKS_PER_SEC;
@@ -119,7 +133,9 @@ int* SortUtils::reMergeSort(){
     clock_t begin, end;
     
     begin = clock();
+    // 실제 알고리즘 부분 ///////////////////////
     int* sortedArr = MergeSort::recurSort(arr, 1, totalSize-1);
+    /////////////////////////////////////////
     end = clock();
     
     processTime = (float)(end-begin)/CLOCKS_PER_SEC;
@@ -134,7 +150,9 @@ int* SortUtils::HeapSort(){
     clock_t begin, end;
     
     begin = clock();
+    // 실제 알고리즘 부분 ///////////////////////
     int* sortedArr = HeapSort::sort(arr);
+    /////////////////////////////////////////
     end = clock();
     
     processTime = (float)(end-begin)/CLOCKS_PER_SEC;
@@ -144,28 +162,11 @@ int* SortUtils::HeapSort(){
     return sortedArr;
 }
 
-//int* SortUtils::char2int(char* charArr){
-//    char* tmpArr;
-//    strcpy(charArr, tmpArr);
-//    char* tok = " ";
-//    int intArraySize = CountChar(charArr, tok[0]) + 2;
-//    int* intArr = new int[intArraySize];
-//    char* charNums = strtok(charArr, tok);
-//    intArr[SIZE] = intArraySize;
-//
-//    for(int i=1; charNums != NULL && i<intArraySize; i++){
-//        intArr[i] = atoi(charNums);
-//        charNums = strtok(NULL, tok);
-//    }
-//
-//    return intArr;
-//}
-
 int* SortUtils::char2int(char* charArr){
     char* tmpArr = new char[strlen(charArr)];
     strcpy(tmpArr, charArr);
     char* tok = " ";
-    int intArraySize = CountChar(tmpArr, tok[0]) + 2;
+    int intArraySize = CountChar(tmpArr, tok[0]) + 1;
     int* intArr = new int[intArraySize];
     char* charNums = strtok(tmpArr, tok);
     intArr[SIZE] = intArraySize;
